@@ -7,6 +7,14 @@
   min-height: 100vh;
 }
 
+.scene {
+  width: 100vw;
+  height: 100vh;
+}
+
+.canvas {
+  background: #000;
+}
 .description {
   display: inherit;
   justify-content: inherit;
@@ -97,7 +105,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -125,7 +133,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
