@@ -23,7 +23,7 @@ export default function SliderComponent({
   };
   const resetPosition = () => {
     const storageSetting: CameraProps = JSON.parse(
-      localStorage.getItem("camera_setting")
+      localStorage.getItem("camera_setting")!
     );
     setCameraSetting({
       fov: storageSetting.fov,

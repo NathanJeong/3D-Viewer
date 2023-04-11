@@ -40,7 +40,7 @@ const MainScreen: NextPage = () => {
   const windowSize = useWindowSize();
   useEffect(() => {
     const storageSetting: CameraProps = JSON.parse(
-      localStorage.getItem("camera_setting")
+      localStorage.getItem("camera_setting")!
     );
     if (storageSetting !== null) {
       console.log(storageSetting);

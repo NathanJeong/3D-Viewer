@@ -8,7 +8,7 @@ import { DEG2RAD } from "three/src/math/MathUtils";
 
 export default function Scene() {
   const meshRef = useRef<Mesh | null>(null);
-  const cameraControlsRef = useRef<CameraControls | null>(null);
+  const cameraControlsRef = useRef<CameraControls>(null);
   const { camera } = useThree();
   const {
     minDistance,
@@ -60,6 +60,7 @@ export default function Scene() {
       {
         vec1: { value: [0, 0, 0], label: "vec" },
         "moveTo(…vec)": button((get) =>
+          // @ts-ignore
           cameraControlsRef.current?.moveTo(...get("moveTo.vec1"), true)
         ),
       },
@@ -73,6 +74,7 @@ export default function Scene() {
         vec2: { value: [0, 0, 0], label: "vec" },
         "setPosition(…vec)": button((get) =>
           cameraControlsRef.current?.setPosition(
+            // @ts-ignore
             ...get("setPosition.vec2"),
             true
           )
@@ -84,6 +86,7 @@ export default function Scene() {
       {
         vec3: { value: [3, 0, -3], label: "vec" },
         "setTarget(…vec)": button((get) =>
+          // @ts-ignore
           cameraControlsRef.current?.setTarget(...get("setTarget.vec3"), true)
         ),
       },
@@ -95,6 +98,7 @@ export default function Scene() {
         vec5: { value: [1, 1, 0], label: "target" },
         "setLookAt(…position, …target)": button((get) =>
           cameraControlsRef.current?.setLookAt(
+            // @ts-ignore
             ...get("setLookAt.vec4"),
             ...get("setLookAt.vec5"),
             true
@@ -112,6 +116,7 @@ export default function Scene() {
         t: { value: Math.random(), label: "t", min: 0, max: 1 },
         "f(…posA,…tgtA,…posB,…tgtB,t)": button((get) => {
           return cameraControlsRef.current?.lerpLookAt(
+            // @ts-ignore
             ...get("lerpLookAt.vec6"),
             ...get("lerpLookAt.vec7"),
             ...get("lerpLookAt.vec8"),
