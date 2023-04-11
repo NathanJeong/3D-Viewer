@@ -30,6 +30,7 @@ export default function ObjectScene({
     materials.preload();
     loader.setMaterials(materials);
   });
+
   return (
     <>
       <primitive object={obj} />
