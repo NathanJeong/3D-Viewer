@@ -7,6 +7,7 @@ export default function useHeaderBar() {
   const [bgPreset, setBgPreset] = useState<EnvironmentProps>("");
   const [pointLightOn, setPointLightOn] = useState<boolean>(true);
   const [controls, setControls] = useState<boolean>(true);
+  const [sliderOpen, setSliderOpen] = useState<boolean>(false);
   const headerBar = () => {
     return (
       <div
@@ -18,6 +19,17 @@ export default function useHeaderBar() {
         }}
       >
         <div style={{ marginRight: 10 }}>
+          <button
+            onClick={() => setSliderOpen((prev) => !prev)}
+            style={{
+              padding: 10,
+              borderRadius: 10,
+              marginRight: 10,
+              backgroundColor: sliderOpen ? "#6a6ff8" : "rgba(230,230,230,1)",
+            }}
+          >
+            Slider Button
+          </button>
           <button
             onClick={() => setAmbientOn((prev) => !prev)}
             style={{
@@ -118,5 +130,6 @@ export default function useHeaderBar() {
     bgPreset,
     pointLightOn,
     controls,
+    sliderOpen,
   };
 }

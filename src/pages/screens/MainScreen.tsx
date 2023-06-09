@@ -35,7 +35,7 @@ const MainScreen: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [cameraSetting, setCameraSetting] = useState<CameraProps>(Object);
   const [onPress, setOnPress] = useState<boolean>(false);
-  const { headerBar, ambientOn, bgPreset, pointLightOn, controls } =
+  const { headerBar, ambientOn, bgPreset, pointLightOn, controls, sliderOpen } =
     useHeaderBar();
   const windowSize = useWindowSize();
   useEffect(() => {
@@ -80,12 +80,14 @@ const MainScreen: NextPage = () => {
               cursor: grab ? "grabbing" : "grab",
             }}
           >
-            <SliderComponent
-              cameraSetting={cameraSetting}
-              setCameraSetting={setCameraSetting}
-              onPress={onPress}
-              setOnPress={setOnPress}
-            />
+            {sliderOpen && (
+              <SliderComponent
+                cameraSetting={cameraSetting}
+                setCameraSetting={setCameraSetting}
+                onPress={onPress}
+                setOnPress={setOnPress}
+              />
+            )}
             <Canvas
               dpr={[1, 2]}
               shadows
